@@ -1,0 +1,726 @@
+@media screen and (min-width: 1280px) {
+
+    * {
+        margin: 0;
+        padding-left: auto;
+        padding-right: auto;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #000;
+        color: white;
+    }
+
+    header {
+        padding: 1rem 0;
+        background-color: #000;
+        border-bottom: 1px solid #545454;
+        max-width: 880px;
+        margin: 0 auto;
+    }
+
+    .logo {
+        margin-right: calc(27% - ((1920px - 100vw) * 0.20));
+        margin-bottom: 5px;
+    }
+
+    .profile-section {
+        padding: 20px 16px;
+        gap: 290px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        justify-content: center;
+    }
+
+    .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-name {
+        font-weight: bold;
+        font-size: 42px;
+        letter-spacing: 1px;
+    }
+
+    .profile-occupation {
+        font-size: 18px;
+        color: #aaa;
+    }
+
+    .edit-profile-button {
+        padding: 8px 40px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .edit-profile-button:hover{
+        opacity: 0.6;
+    }
+
+    .verified-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+    }
+
+    .elements__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+        gap: 20px 17px;
+        padding: 0;
+        margin: 0 auto;
+        width: 880px;
+    }
+
+    .element {
+        background: #FFFFFF;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .element__image {
+        width: 100%;
+        height: 282px;
+        object-fit: cover;
+    }
+
+    .element__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 20px;
+        background: white;
+    }
+
+    .element__title {
+        margin: 0;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 29px;
+        color: black;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 200px;
+    }
+
+    .element__like-button {
+        width: 21px;
+        height: 19px;
+        background: transparent url('../assets/heart.png') center no-repeat;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .black{
+        width: 21px;
+        height: 19px;
+        background: transparent url('../assets/Union.png') center no-repeat;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .element__like-button:hover {
+        opacity: 0.6;
+    }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+    }
+
+    .modal {
+        background-color: white;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        position: relative;
+        border: 1px solid #333;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .modal-title {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: black;
+    }
+
+    .modal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-input {
+        padding: 10px;
+        background-color: white;
+        border: none;
+        border-bottom: 1px solid #333;
+        color: black;
+    }
+
+    .save-button {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        padding: 15px 12px;
+        margin-top: 40px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    footer {
+        margin-left: calc(27% - ((1920px - 100vw) * 0.20));
+        display: flex;
+        justify-content: start;
+        padding: 24px 2px;
+        text-align: center;
+        font-size: 12px;
+        color: #555;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width : 1280px) and (min-width : 768px){
+    
+    * {
+        margin: 0;
+        padding-left: auto;
+        padding-right: auto;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+
+    body {
+        background-color: #000;
+        color: white;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
+    header {
+        padding: 1rem 0;
+        background-color: #000;
+        border-bottom: 1px solid #545454;
+        width: 100%;
+    }
+
+    .logo {
+        margin-right: auto;
+        margin-bottom: 5px;
+    }
+
+    .profile-section {
+        padding: 20px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .profile-info {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .profile-pic {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-name {
+        font-weight: bold;
+        font-size: 42px;
+        letter-spacing: 1px;
+    }
+
+    .profile-occupation {
+        font-size: 18px;
+        color: #aaa;
+    }
+
+    .edit-profile-button {
+        padding: 8px 40px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+        overflow-x: hidden;
+    }
+
+    .edit-profile-button:hover{
+        opacity: 0.6;
+    }
+
+    .verified-icon {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+    }
+
+    .elements__list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* Changed to exactly 2 columns */
+        gap: 20px 17px;
+        padding: 0;
+        margin: 0 auto;
+        width: 100%; /* Changed to be responsive */
+        max-width: 880px;
+    }
+
+    .element {
+        background: #FFFFFF;
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .element__image {
+        width: 100%;
+        height: 282px;
+        object-fit: cover;
+    }
+
+    .element__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 20px;
+        background: white;
+    }
+
+    .element__title {
+        margin: 0;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 29px;
+        color: black;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 200px;
+    }
+
+    .element__like-button {
+        width: 21px;
+        height: 19px;
+        background: transparent url('../assets/heart.png') center no-repeat;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .black{
+        width: 21px;
+        height: 19px;
+        background: transparent url('../assets/Union.png') center no-repeat;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .element__like-button:hover {
+        opacity: 0.6;
+    }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+    }
+
+    .modal {
+        background-color: white;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        position: relative;
+        border: 1px solid #333;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .modal-title {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: black;
+    }
+
+    .modal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-input {
+        padding: 10px;
+        background-color: white;
+        border: none;
+        border-bottom: 1px solid #333;
+        color: black;
+    }
+
+    .save-button {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        padding: 15px 12px;
+        margin-top: 40px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    footer {
+        margin-right: auto;
+        padding: 24px 16px;
+        font-size: 12px;
+        color: #555;
+        margin-top: 20px;
+    }
+
+}
+
+@media screen and (max-width : 768px){
+    * {
+        margin: 0;
+        padding-left: auto;
+        padding-right: auto;
+        box-sizing: border-box;
+        font-family: 'Inter', Arial, sans-serif;
+    }
+
+    body {
+        background-color: #000;
+        color: white;
+        margin: 0 1.5rem;
+    }
+
+    header {
+        padding: 1rem 0;
+        background-color: #000;
+        border-bottom: 1px solid #545454;
+        width: 100%;
+    }
+
+    .logo {
+        width: 126px;
+        margin-left: 27px;
+        margin-bottom: 5px;
+    }
+
+    .profile-section {
+        padding: 20px 16px;
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+    }
+
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .profile-name {
+        width: 282px;
+        height: 50px;
+        font-weight: bold;
+        font-size: 22px;
+        letter-spacing: 1px;
+    }
+
+    .profile-occupation {
+        font-size: 14px;
+        color: #aaa;
+        transform: translateY(-10px);
+    }
+
+    .edit-profile-button {
+        width: 100%;
+        height: 50px;
+        padding: 8px 40px;
+        background-color: transparent;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+
+    .edit-profile-button:hover {
+        opacity: 0.6;
+    }
+
+    .verified-icon {
+        width: 16px;
+        height: 16px;
+        margin-left: 5px;
+        vertical-align: middle;
+        position: relative;
+        top: -2px;
+        cursor: pointer;
+    }
+
+    .elements__list {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 19px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .element {
+        height: 361px;
+        margin: 0;
+        background: #FFFFFF;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .element__image {
+        width: 100%;
+        height: 282px;
+        object-fit: cover;
+    }
+
+    .element__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 20px;
+        background: white;
+    }
+
+    .element__title {
+        margin: 0;
+        font-weight: 900;
+        font-size: 1.5rem;
+        line-height: 29px;
+        color: black;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 200px;
+    }
+
+    .element__like-button {
+        width: 21px;
+        height: 19px;
+        background: transparent url('../assets/heart.png') center no-repeat;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .black{
+        width: 21px;
+        height: 19px;
+        background: transparent url('../assets/Union.png') center no-repeat;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .element__like-button:hover {
+        opacity: 0.6;
+    }
+
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        display: none;
+    }
+
+    .modal {
+        background-color: white;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        padding: 20px;
+        position: relative;
+        border: 1px solid #333;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .modal-title {
+        color: #000;
+        font-size: 1.5rem;
+        font-weight: bold;
+        font-family: 'Inter' Arial, Helvetica, sans-serif;
+    }
+
+    .modal-close {
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 45px;
+        color: white;
+        transform: translateY(-80px);
+    }
+
+    .modal-form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .form-input {
+        padding: 10px;
+        background-color: white;
+        border: none;
+        border-bottom: 1px solid #333;
+        color: black;
+    }
+
+    .save-button {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff;
+        border-radius: 4px;
+        padding: 15px 12px;
+        margin-top: 40px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    footer {
+        padding: 24px 19px;
+        text-align: left;
+        color: #545454;
+        font-family: 'Inter', sans-serif;
+    }
+}
