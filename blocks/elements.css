@@ -1,232 +1,7 @@
-@media screen and (min-width: 1280px) {
-
-.elements__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
-    gap: 20px 17px;
-    padding: 0;
-    margin: 0 auto;
-    width: 880px;
-}
-
-.element {
-    background: #FFFFFF;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.element__image {
-    width: 100%;
-    height: 282px;
-    object-fit: cover;
-}
-
-.element__info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 20px;
-    background: white;
-}
-
-.element__title {
-    margin: 0;
-    font-weight: 900;
-    font-size: 1.5rem;
-    line-height: 29px;
-    color: black;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 200px;
-}
-
-.element__like-button {
-    width: 21px;
-    height: 19px;
-    background: transparent url('../assets/heart.png') center no-repeat;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: opacity 0.3s ease;
-    opacity: 1; /* Garantindo visibilidade */
-}
-
-.black{
-    width: 21px;
-    height: 19px;
-    background: transparent url('./assets/Union.png') center no-repeat;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: opacity 0.3s ease;
-}
-
-.element__like-button:hover {
-    opacity: 0.6;
-}
-}
-
-@media screen and (max-width : 1280px) and (min-width : 768px){
-
-.elements__list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Changed to exactly 2 columns */
-    gap: 20px 17px;
-    padding: 0;
-    margin: 0 auto;
-    width: 100%; /* Changed to be responsive */
-    max-width: 880px;
-}
-
-.element {
-    background: #FFFFFF;
-    border-radius: 10px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.element__image {
-    width: 100%;
-    height: 282px;
-    object-fit: cover;
-}
-
-.element__info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 20px;
-    background: white;
-}
-
-.element__title {
-    margin: 0;
-    font-weight: 900;
-    font-size: 1.5rem;
-    line-height: 29px;
-    color: black;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 200px;
-}
-
-.element__like-button {
-    width: 21px;
-    height: 19px;
-    background: transparent url('../assets/heart.png') center no-repeat;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: opacity 0.3s ease;
-    opacity: 1; /* Garantindo visibilidade */
-}
-
-.black{
-    width: 21px;
-    height: 19px;
-    background: transparent url('../assets/Union.png') center no-repeat;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    transition: opacity 0.3s ease;
-}
-
-.element__like-button:hover {
-    opacity: 0.6;
-}
-}
-
-@media screen and (max-width : 768px){
-    
-    .elements {
-        width: 100%;
-        max-width: 320px; /* Largura máxima consistente para mobile */
-        margin: 0 auto;
-        padding: 10px 0 0;
-        box-sizing: border-box;
-    }
-    
-    .elements__list {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 20px;
-        padding: 0 19px;
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .element {
-        height: 361px;
-        width: 100%; /* Faz o card ocupar toda a largura disponível */
-        max-width: 282px; /* Limita a largura máxima */
-        margin: 0 auto; /* Centraliza o card */
-        background: #FFFFFF;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .element__image {
-        width: 100%;
-        height: 282px;
-        object-fit: cover;
-    }
-
-    .element__info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 25px 20px;
-        background: white;
-    }
-
-    .element__title {
-        margin: 0;
-        font-weight: 900;
-        font-size: 1.5rem;
-        line-height: 29px;
-        color: black;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        max-width: 200px;
-    }
-
-    .element__like-button {
-        width: 21px;
-        height: 19px;
-        background: transparent url('../assets/heart.png') center no-repeat;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        transition: opacity 0.3s ease;
-        opacity: 1; /* Garantindo visibilidade */
-    }
-
-    .black{
-        width: 21px;
-        height: 19px;
-        background: transparent url('../assets/Union.png') center no-repeat;
-        border: none;
-        cursor: pointer;
-        padding: 0;
-        transition: opacity 0.3s ease;
-    }
-
-    .element__like-button:hover {
-        opacity: 0.6;
-    }
-}
-
 .elements {
     max-width: 880px;
     margin: 0 auto;
-    padding: 20px 0 0; /* Reduzido para um pequeno espaçamento */
+    padding: 20px 0 0;
 }
 
 .elements__list {
@@ -241,18 +16,24 @@
 
 .element {
     width: 282px;
-    height: 361px; 
     background-color: white;
     border-radius: 10px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .element__image {
-    width: 282px; /* Largura fixa igual à do card */
-    height: 282px; /* Altura fixa para manter proporção quadrada */
-    object-fit: cover; /* Mantém a proporção da imagem sem distorção */
+    width: 282px;
+    height: 282px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.element__image:hover {
+    opacity: 0.8;
 }
 
 .element__info {
@@ -270,48 +51,47 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 190px; /* Espaço máximo para o título */
+    max-width: 190px;
+    color: black;
 }
 
 .element__like-button {
     width: 21px;
     height: 19px;
-    background: transparent url(../assets/Vector_3.png) center no-repeat;
+    background: transparent url('../assets/heart.png') center no-repeat;
+    background-size: contain;
     border: none;
     cursor: pointer;
     transition: opacity 0.3s;
+    flex-shrink: 0;
 }
 
 .element__like-button:hover {
     opacity: 0.5;
 }
 
-.element__like-button.black {
-    background-image: url(../assets/Union.png);
+.element__like-button_active {
+    background-image: url('../assets/Union.png');
 }
 
-/* Correção global para garantir que os ícones apareçam */
-.element__like-button {
-    width: 21px;
-    height: 19px;
-    background: transparent url('../assets/heart.png') center no-repeat !important; /* Forçando este background */
+.element__delete-button {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    width: 18px;
+    height: 20px;
+    background: transparent url('../assets/Trash.svg') center no-repeat;
+    background-size: contain;
     border: none;
     cursor: pointer;
     transition: opacity 0.3s;
-    opacity: 1;
+    z-index: 1;
 }
 
-.element__like-button:hover {
-    opacity: 0.5;
+.element__delete-button:hover {
+    opacity: 0.6;
 }
 
-/* Sobrescrevendo apenas para o estado ativo */
-.element__like-button.black,
-.black {
-    background-image: url('../assets/Union.png') !important;
-}
-
-/* Mantém o layout responsivo mas preserva o tamanho dos cards */
 @media screen and (max-width: 890px) {
     .elements {
         max-width: 581px;
@@ -320,7 +100,22 @@
 
 @media screen and (max-width: 600px) {
     .elements {
-        max-width: 320px; /* Consistente com outras seções */
+        max-width: 320px;
         padding: 10px 0 0;
+    }
+    
+    .elements__list {
+        grid-template-columns: 1fr;
+        padding: 0 19px;
+    }
+    
+    .element {
+        width: 100%;
+        max-width: 282px;
+        margin: 0 auto;
+    }
+    
+    .element__image {
+        width: 100%;
     }
 }

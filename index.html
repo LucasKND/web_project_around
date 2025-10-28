@@ -27,60 +27,15 @@
     <button class="edit-profile-button" id="editProfileBtn">+</button>
 </section>
 
-<!-- Galeria -->
 <section class="elements"> 
-<div class="elements__list">
-    <div class="element">
-        <img src="./assets/kirill-pershin-1088404-unsplash.jpg" alt="Vale de Yosemite" class="element__image">
-        <div class="element__info">
-            <h2 class="element__title">Vale de Yosemite</h2>
-            <button class="element__like-button" type="button"></button>
-        </div>
-    </div>
-    <div class="element">
-        <img src="./assets/kirill-pershin-1404681-unsplash.png" alt="Lago Louise" class="element__image">
-        <div class="element__info">
-            <h2 class="element__title">Lago Louise</h2>
-            <button class="element__like-button" type="button"></button>
-        </div>
-    </div>
-    <div class="element">
-        <img src="./assets/kirill-pershin-1556355-unsplash.png" alt="Montanhas Carenadas" class="element__image">
-        <div class="element__info">
-            <h2 class="element__title">Montanhas Carenadas</h2>
-            <button class="element__like-button" type="button"></button>
-        </div>
-    </div>
-    <div class="element">
-        <img src="./assets/kirill-pershin-1404681-unsplash (1).png" alt="Latemar" class="element__image">
-        <div class="element__info">
-            <h2 class="element__title">Latemar</h2>
-            <button class="element__like-button" type="button"></button>
-        </div>
-    </div>
-    <div class="element">
-        <img src="./assets/kirill-pershin-1556355-unsplash (1).png" alt="Parque Nacional de Vanoise" class="element__image">
-        <div class="element__info">
-            <h2 class="element__title">Parque Nacional de Vanoise</h2>
-            <button class="element__like-button" type="button"></button>
-        </div>
-    </div>
-    <div class="element">
-        <img src="./assets/kirill-pershin-1088404-unsplash.png" alt="Lago di Braies" class="element__image">
-        <div class="element__info">
-            <h2 class="element__title">Lago di Braies</h2>
-            <button class="element__like-button" type="button"></button>
-        </div>
-    </div>
-</div>
+    <div class="elements__list"></div>
 </section>
 
-<!-- Modal de edição de perfil -->
 <div class="modal-overlay" id="profileModal">
     <div class="modal">
         <div class="modal-header">
             <div class="modal-title">Editar perfil</div>
-            <button class="modal-close" id="closeModal">&times;</button>
+            <button class="modal-close" id="closeModal"></button>
         </div>
         <form class="modal-form" id="profileForm">
             <div class="form-group">
@@ -98,10 +53,49 @@
     </div>
 </div>
 
-<!-- Footer -->
+<div class="modal-overlay" id="addCardModal">
+    <div class="modal">
+        <div class="modal-header">
+            <div class="modal-title">Novo local</div>
+            <button class="modal-close" id="closeAddCardModal"></button>
+        </div>
+        <form class="modal-form" id="addCardForm">
+            <div class="form-group">
+                <input type="text" class="form-input" id="cardTitleInput" placeholder="Título" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="url" class="form-input" id="cardImageInput" placeholder="Link da imagem" required>
+            </div>
+            
+            <button type="submit" class="save-button">Criar</button>
+        </form>
+    </div>
+</div>
+
+<div class="modal-overlay" id="imageModal">
+    <div class="modal-image-container">
+        <button class="modal-close" id="closeImageModal"></button>
+        <img src="" alt="" class="modal-image">
+        <p class="modal-image-caption"></p>
+    </div>
+</div>
+
 <footer class="footer">
     © 2024 Around The U.S.
 </footer>
-<script src="./scripts/index.js"></script>
+
+<template id="card-template">
+    <div class="element">
+        <button class="element__delete-button" type="button"></button>
+        <img src="" alt="" class="element__image">
+        <div class="element__info">
+            <h2 class="element__title"></h2>
+            <button class="element__like-button" type="button"></button>
+        </div>
+    </div>
+</template>
+
+<script defer src="./scripts/index.js"></script>
 </body>
 </html>
