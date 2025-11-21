@@ -37,15 +37,17 @@
             <div class="modal-title">Editar perfil</div>
             <button class="modal-close" id="closeModal"></button>
         </div>
-        <form class="modal-form" id="profileForm">
+        <form class="modal-form" id="profileForm" novalidate>
             <div class="form-group">
                 <label class="form-label"></label>
-                <input type="text" class="form-input" id="nameInput" value="Jacques Cousteau" required>
+                <input type="text" class="form-input" id="nameInput" name="name" placeholder="Nome" minlength="2" maxlength="40" required>
+                <span class="form-input-error nameInput-error"></span>
             </div>
             
             <div class="form-group">
                 <label class="form-label"></label>
-                <input type="text" class="form-input" id="occupationInput" value="Explorador" required>
+                <input type="text" class="form-input" id="occupationInput" name="about" placeholder="Sobre mim" minlength="2" maxlength="200" required>
+                <span class="form-input-error occupationInput-error"></span>
             </div>
             
             <button type="submit" class="save-button" id="saveProfileBtn">Salvar</button>
@@ -59,13 +61,15 @@
             <div class="modal-title">Novo local</div>
             <button class="modal-close" id="closeAddCardModal"></button>
         </div>
-        <form class="modal-form" id="addCardForm">
+        <form class="modal-form" id="addCardForm" novalidate>
             <div class="form-group">
-                <input type="text" class="form-input" id="cardTitleInput" placeholder="Título" required>
+                <input type="text" class="form-input" id="cardTitleInput" name="title" placeholder="Título" minlength="2" maxlength="30" required>
+                <span class="form-input-error cardTitleInput-error"></span>
             </div>
             
             <div class="form-group">
-                <input type="url" class="form-input" id="cardImageInput" placeholder="Link da imagem" required>
+                <input type="url" class="form-input" id="cardImageInput" name="link" placeholder="Link da imagem" required>
+                <span class="form-input-error cardImageInput-error"></span>
             </div>
             
             <button type="submit" class="save-button">Criar</button>
@@ -96,6 +100,7 @@
     </div>
 </template>
 
+<script defer src="./scripts/validate.js"></script>
 <script defer src="./scripts/index.js"></script>
 </body>
 </html>

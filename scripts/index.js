@@ -25,6 +25,15 @@ const initialCards = [
     }
 ];
 
+const validationConfig = {
+    formSelector: ".modal-form",
+    inputSelector: ".form-input",
+    submitButtonSelector: ".save-button",
+    inactiveButtonClass: "save-button_disabled",
+    inputErrorClass: "form-input_type_error",
+    errorClass: "form-input-error_visible"
+};
+
 const profileModal = document.getElementById('profileModal');
 const addCardModal = document.getElementById('addCardModal');
 const imageModal = document.getElementById('imageModal');
@@ -96,6 +105,11 @@ function openModal(modal) {
 function closeModal(modal) {
     modal.style.display = 'none';
     document.removeEventListener('keydown', handleEscapeKey);
+    
+    const form = modal.querySelector('.modal-form');
+    if (form) {
+        resetValidation(form, validationConfig);
+    }
 }
 
 function handleEscapeKey(evt) {
@@ -111,7 +125,14 @@ function openProfileModal() {
     const nameText = profileName.childNodes[0].nodeValue.trim();
     nameInput.value = nameText;
     occupationInput.value = profileOccupation.textContent.trim();
+    resetValidation(profileForm, validationConfig);
     openModal(profileModal);
+}
+
+function openAddCardModal() {
+    addCardForm.reset();
+    resetValidation(addCardForm, validationConfig);
+    openModal(addCardModal);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -138,7 +159,6 @@ function handleAddCardFormSubmit(evt) {
         link: cardImageInput.value.trim()
     };
     renderCard(newCard);
-    addCardForm.reset();
     closeModal(addCardModal);
 }
 
@@ -148,15 +168,17 @@ function loadSavedProfileInfo() {
         
     if (savedName) {
         profileName.childNodes[0].nodeValue = savedName + ' ';
+        nameInput.value = savedName;
     }
         
     if (savedOccupation) {
         profileOccupation.textContent = savedOccupation;
+        occupationInput.value = savedOccupation;
     }
 }
 
 editIcon.addEventListener('click', openProfileModal);
-editProfileBtn.addEventListener('click', () => openModal(addCardModal));
+editProfileBtn.addEventListener('click', openAddCardModal);
 closeModalButton.addEventListener('click', () => closeModal(profileModal));
 closeAddCardModalButton.addEventListener('click', () => closeModal(addCardModal));
 closeImageModalButton.addEventListener('click', () => closeModal(imageModal));
@@ -181,6 +203,8 @@ imageModal.addEventListener('click', (evt) => {
         closeModal(imageModal);
     }
 });
+
+enableValidation(validationConfig);
 
 initialCards.forEach(renderCard);
 loadSavedProfileInfo();
