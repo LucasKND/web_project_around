@@ -25,7 +25,7 @@ Este projeto foi desenvolvido como parte do Bootcamp de Desenvolvimento Web da T
 
 ## 🔗 Link GitHub Pages
 
-- NAO CONSEGUI CRIAR O LINK NO PAGES
+- https://lucasknd.github.io/web_project_around/
 
 
 &copy; 2025 Projeto EUA Afora. Todos os direitos reservados.

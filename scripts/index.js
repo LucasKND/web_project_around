@@ -1,3 +1,7 @@
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+import { openModal, closeModal, handleOverlayClick } from './utils.js';
+
 const initialCards = [
     {
         name: "Vale de Yosemite",
@@ -42,7 +46,6 @@ const closeAddCardModalButton = document.getElementById('closeAddCardModal');
 const closeImageModalButton = document.getElementById('closeImageModal');
 const editProfileBtn = document.getElementById('editProfileBtn');
 const editIcon = document.getElementById('editIcon');
-const cardTemplate = document.querySelector('#card-template').content;
 const elementsListContainer = document.querySelector('.elements__list');
 
 const profileName = document.querySelector('.profile-name');
@@ -55,83 +58,29 @@ const addCardForm = document.getElementById('addCardForm');
 const cardTitleInput = document.getElementById('cardTitleInput');
 const cardImageInput = document.getElementById('cardImageInput');
 
-const modalImage = document.querySelector('.modal-image');
-const modalImageCaption = document.querySelector('.modal-image-caption');
+const profileFormValidator = new FormValidator(validationConfig, profileForm);
+const addCardFormValidator = new FormValidator(validationConfig, addCardForm);
 
-function createCard(cardData) {
-    const cardElement = cardTemplate.cloneNode(true);
-    const cardImage = cardElement.querySelector('.element__image');
-    const cardTitle = cardElement.querySelector('.element__title');
-    const likeButton = cardElement.querySelector('.element__like-button');
-    const deleteButton = cardElement.querySelector('.element__delete-button');
-
-    cardImage.src = cardData.link;
-    cardImage.alt = cardData.name;
-    cardTitle.textContent = cardData.name;
-
-    likeButton.addEventListener('click', handleLikeButton);
-    deleteButton.addEventListener('click', handleDeleteCard);
-    cardImage.addEventListener('click', () => handleImageClick(cardData));
-
-    return cardElement;
-}
+profileFormValidator.enableValidation();
+addCardFormValidator.enableValidation();
 
 function renderCard(cardData) {
-    const cardElement = createCard(cardData);
+    const card = new Card(cardData, '#card-template');
+    const cardElement = card.generateCard();
     elementsListContainer.prepend(cardElement);
-}
-
-function handleLikeButton(evt) {
-    evt.target.classList.toggle('element__like-button_active');
-}
-
-function handleDeleteCard(evt) {
-    const cardElement = evt.target.closest('.element');
-    cardElement.remove();
-}
-
-function handleImageClick(cardData) {
-    modalImage.src = cardData.link;
-    modalImage.alt = cardData.name;
-    modalImageCaption.textContent = cardData.name;
-    openModal(imageModal);
-}
-
-function openModal(modal) {
-    modal.style.display = 'flex';
-    document.addEventListener('keydown', handleEscapeKey);
-}
-
-function closeModal(modal) {
-    modal.style.display = 'none';
-    document.removeEventListener('keydown', handleEscapeKey);
-    
-    const form = modal.querySelector('.modal-form');
-    if (form) {
-        resetValidation(form, validationConfig);
-    }
-}
-
-function handleEscapeKey(evt) {
-    if (evt.key === 'Escape') {
-        const openedModal = document.querySelector('.modal-overlay[style*="flex"]');
-        if (openedModal) {
-            closeModal(openedModal);
-        }
-    }
 }
 
 function openProfileModal() {
     const nameText = profileName.childNodes[0].nodeValue.trim();
     nameInput.value = nameText;
     occupationInput.value = profileOccupation.textContent.trim();
-    resetValidation(profileForm, validationConfig);
+    profileFormValidator.resetValidation();
     openModal(profileModal);
 }
 
 function openAddCardModal() {
     addCardForm.reset();
-    resetValidation(addCardForm, validationConfig);
+    addCardFormValidator.resetValidation();
     openModal(addCardModal);
 }
 
@@ -187,24 +136,16 @@ profileForm.addEventListener('submit', handleProfileFormSubmit);
 addCardForm.addEventListener('submit', handleAddCardFormSubmit);
 
 profileModal.addEventListener('click', (evt) => {
-    if (evt.target === profileModal) {
-        closeModal(profileModal);
-    }
+    handleOverlayClick(profileModal, evt);
 });
 
 addCardModal.addEventListener('click', (evt) => {
-    if (evt.target === addCardModal) {
-        closeModal(addCardModal);
-    }
+    handleOverlayClick(addCardModal, evt);
 });
 
 imageModal.addEventListener('click', (evt) => {
-    if (evt.target === imageModal) {
-        closeModal(imageModal);
-    }
+    handleOverlayClick(imageModal, evt);
 });
-
-enableValidation(validationConfig);
 
 initialCards.forEach(renderCard);
 loadSavedProfileInfo();
